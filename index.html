@@ -598,7 +598,7 @@
             <p>Es el componente con el mejor rendimiento, quedando solo dos puntos por debajo del promedio Nacional (≈ 85). Demuestra una excelente capacidad para entender la intención, el propósito y el contexto de los mensajes escritos y orales.</p>
 
             <h5>Lenguaje: Lectura Inferencial (Promedio ≈ 79)</h5>
-            <p>Componente que mide la capacidad de deducir información no explícita; muestra rendimiento alto, cercano al promedio Nacional (≈ 83). Indica buen nivel de pensamiento crítico y análisis textual.</p>
+            <p>Componente que mide la capacidad de deducción de información no explícita; muestra rendimiento alto, cercano al promedio Nacional (≈ 83). Indica buen nivel de pensamiento crítico y análisis textual.</p>
 
             <h5>Ciencias Sociales: Desempeño General</h5>
             <p>Los tres componentes de Sociales (El Espacio, El Tiempo y El Poder) mantienen desempeño estable entre ≈ 50 y ≈ 58, con una brecha moderada frente a los referentes; indica comprensión aceptable del contexto histórico y geográfico.</p>
@@ -1451,4 +1451,26 @@
         </div>
     </section>
 
+    <script>
+(function(){
+  function ajustarOffset(){
+    const h = document.querySelector('header');
+    if(!h) return;
+    const altura = Math.ceil(h.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--header-offset', altura + 'px');
+  }
+  window.addEventListener('load', ajustarOffset);
+  window.addEventListener('resize', function(){
+    clearTimeout(window._ajHeaderT);
+    window._ajHeaderT = setTimeout(ajustarOffset, 80);
+  });
+  window.addEventListener('orientationchange', ajustarOffset);
+  if(window.MutationObserver){
+    const h = document.querySelector('header');
+    const obs = new MutationObserver(ajustarOffset);
+    if(h) obs.observe(h, { childList: true, subtree: true, attributes: true });
+  }
+})();
+</script>
 </body>
+</html>
