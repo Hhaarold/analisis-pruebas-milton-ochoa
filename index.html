@@ -420,7 +420,7 @@
                             <p>Es el componente con el mejor rendimiento, quedando solo dos puntos por debajo del promedio Nacional (≈ 85). Demuestra una excelente capacidad para entender la intención, el propósito y el contexto de los mensajes escritos y orales.</p>
 
                             <h5>Lenguaje: Lectura Inferencial (Promedio ≈ 79)</h5>
-                            <p>Este componente, que mide la capacidad de deducción de información no explícita, muestra un rendimiento alto, cercano al promedio Nacional (≈ 83). Sugiere buen nivel de pensamiento crítico y análisis textual.</p>
+                            <p>Este componente, que mide la capacidad de deducción de información no explícita, muestra un rendimiento alto, cercano al promedio Nacional (≈ 83). Indica buen nivel de pensamiento crítico y análisis textual.</p>
 
                             <h5>Ciencias Sociales: Desempeño General</h5>
                             <p>Los tres componentes de Sociales (El Espacio, El Tiempo y El Poder) mantienen un desempeño estable entre ≈ 50 y ≈ 58, con una brecha moderada frente a los referentes; indica comprensión aceptable del contexto histórico y geográfico.</p>
@@ -539,7 +539,7 @@
 
                             <h5>Matemáticas y Sociales y Ciudadanas - Inconstancia</h5>
                             <p><strong>Matemáticas:</strong> El puntaje cae notablemente en P3 (de 56 a 40), indicando que la mejoría no es lineal y requiere mayor consistencia.</p>
-                            <strong>Sociales y Ciudadanas:</strong> El descenso notorio en la última prueba (de 56 a 43) es una señal de alerta, posiblemente por desmotivación o falta de repaso al final del ciclo.</p>
+                            <p><strong>Sociales y Ciudadanas:</strong> El descenso notorio en la última prueba (de 56 a 43) es una señal de alerta, posiblemente por desmotivación o falta de repaso al final del ciclo.</p>
                          </div>
                     </div>
                 </article>
@@ -1408,9 +1408,29 @@
             </div>
         </section>
     </main>
+    
 
-
-
+    <script>
+(function(){
+  function ajustarOffset(){
+    const h = document.querySelector('header');
+    if(!h) return;
+    const altura = Math.ceil(h.getBoundingClientRect().height);
+    document.documentElement.style.setProperty('--header-offset', altura + 'px');
+  }
+  window.addEventListener('load', ajustarOffset);
+  window.addEventListener('resize', function(){
+    clearTimeout(window._ajHeaderT);
+    window._ajHeaderT = setTimeout(ajustarOffset, 80);
+  });
+  window.addEventListener('orientationchange', ajustarOffset);
+  if(window.MutationObserver){
+  const h = document.querySelector('header');
+    const obs = new MutationObserver(ajustarOffset);
+    if(h) obs.observe(h, { childList: true, subtree: true, attributes: true });
+  }
+})();
+</script>
     <footer class="site-footer">
         <div class="container">
             <p>Institución Educativa Rural Santa Rita</p>

@@ -34,9 +34,7 @@ header {
     align-items: center;
 }
 
-main{
-    margin-top: 50px;
-}
+
 
 header h1 {
     font-size: 2rem;
@@ -44,6 +42,7 @@ header h1 {
     letter-spacing: 1px;
     margin-bottom: 0.8rem;
 }
+
 
 .menu {
     list-style: none;
@@ -74,6 +73,7 @@ header h1 {
     transition: all 0.3s ease;
     font-weight: 500;
 }
+
 
 .menu li a:hover {
     background-color: var(--color-blanco);
@@ -382,7 +382,18 @@ html {
   scroll-behavior: smooth;
 }
 
+section{
+  scroll-margin-top: calc(var(--header-offset) + 30px);
+}
+
+body{
+  padding-top: var(--header-offset);
+  transition: padding-top .12s linear;
+}
+
+/* mejorar el anclaje de secciones (evita que queden tapadas) */
 section,
-.grado {
+.grado{
   scroll-margin-top: calc(var(--header-offset) + 12px);
 }
+
